@@ -25,7 +25,7 @@ public class App
     	//setup chrome options parameters
     	ChromeOptions chromeOptions = new ChromeOptions();
     	//headless to execute chrome as backend
-    	//chromeOptions.addArguments("--headless");
+    	chromeOptions.addArguments("--headless");
 
     	//initialize web driver
     	WebDriver webDriver = new ChromeDriver(chromeOptions);
@@ -46,12 +46,8 @@ public class App
     	//press "login"
  	   	webDriver.findElement(By.name("login")).click();
     	System.out.println( "Logging in" );
-    	try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-    	webDriver.close();
+
+    	webDriver.quit();
     	System.out.println( "web driver closing");
     }
 }
